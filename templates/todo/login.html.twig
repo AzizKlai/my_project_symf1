@@ -1,0 +1,70 @@
+{% extends 'todo/acceuil.html.twig' %}
+{% block start %}
+    <section class=" slider_section position-relative">
+    <div id="Customcarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row">
+
+                    <div class="col-md-6 ">
+    <div class="detail-box">
+    <h2>
+        Best Way
+    </h2>
+    <h1>
+        Make your list
+    </h1>
+
+    <a href="#login" class="btn-1">
+        start
+    </a>
+</div>
+    </div>
+    <div class="col-md-6">
+        <div class="img-box">
+            <img src="{{ asset('assets/todo_assets/images/slider-img.png') }}" alt="">
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    </div>
+    </div>
+    </section>
+{% endblock %}
+{% block login %}<!-- contact section -->
+
+    <section class="contact_section ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-7 mx-auto">
+                    <div class="heading_container">
+                        <h2 class="">
+                            Register
+                        </h2>
+                        <a id="login"></a>
+                    </div>
+                    <form action="{{ path('app_login_todo') }}" method="post">
+                        <div>
+                            <input type="text" name="nom" placeholder="Name" required/>
+                        </div>
+                        <div>
+                            <input type="text" name="pass" placeholder="Password" required/>
+                        </div>
+
+
+                        <div class="d-flex  mt-4 ">
+                            <button type="submit" href="{{ path('app_todo') }}">
+                                Sign in
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end contact section -->{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Users{% endblock %}
+
+{% block PageTitle %}Bonjour Users : {% endblock %}
+
+{% block pagebody %}
+    {{ include('fragments/date-jous.html.twig') }}
+    <table class="table">
+        <tr class="table-active">
+            <th>fistname</th>
+            <th>name</th>
+            <th>age</th>
+            <th>Message</th>
+        </tr>
+        {#        {{ dump($users) }}#}
+        {% for user in users %}
+            {#            {% set color='warning' %}#}
+            {#            {% if loop.index0 is even %}#}
+            {#                {% set color='danger' %}#}
+            {#            {% endif %}#}
+            <tr class="table-{% if loop.index0 is even %}danger{% else %}warning{% endif %}">
+                <td> {{ user.firstname}} </td>
+                <td> {{ user.name}} </td>
+                <td> {{ user.age}} </td>
+                <td>{{ render(controller('App\\Controller\\FirstController::sayhello',{firstname:user.firstname,name:user.name})) }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    </div>
+{% endblock %}
+{% block footer %}{% endblock %}
+
+{#<!doctype html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport"#}
+{#          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">#}
+{#    <meta http-equiv="X-UA-Compatible" content="ie=edge">#}
+{#    <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}">#}
+{#    <title>Users</title>#}
+{#</head>#}
+{#<body>#}
+{#<h1>Bonjour Users : </h1>#}
+{#<table class="table">#}
+{#    <tr class="table-active">#}
+{#        <th>fistname</th>#}
+{#        <th>name</th>#}
+{#        <th>age</th>#}
+{#    </tr>#}
+{#        {{ dump($users) }}#}
+{#        {% for user in users %}#}
+{#            {% set color='warning' %}#}
+{#            {% if loop.index0 is even %}#}
+{#                {% set color='danger' %}#}
+{#            {% endif %}#}
+{#            <tr class="table-{% if loop.index0 is even %}danger{% else %}warning{% endif %}">#}
+{#            <td> {{ user.firstname}} </td>#}
+{#            <td> {{ user.name}} </td>#}
+{#            <td> {{ user.age}} </td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+
+{#</table>#}
+{#</div>#}
+{#</body>#}
+{#</html>#}

@@ -1,0 +1,21 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "asset": "^0.4.13",
+    "assets": "^3.0.1",
+    "bootstrap": "^5.1.3",
+    "build": "^0.1.4"
+  },
+  "devDependencies": {
+    "build-asset": "^2.0.6"
+  }
+}

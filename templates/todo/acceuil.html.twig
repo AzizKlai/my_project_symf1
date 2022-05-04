@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="aziz klai" />
+
+    <title>{% block bonjour %}Todo {% endblock %}</title>
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/todo_assets/css/bootstrap.css') }}" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Dosis:400,600,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('assets/todo_assets/css/style.css') }}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{{ asset('assets/todo_assets/css/responsive.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="{{ path('app_todo') }}">
+                        <span>
+               {% block bonjourr %}& Todo  {% endblock %}
+            </span>
+            </a>
+
+        </nav>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+
+
+                                {% block start %}{% endblock %}
+
+
+
+    <!-- end slider section -->
+</div>
+
+<div class="footer_bg">
+    {% block login %}{% endblock %}
+    <!-- footer section -->
+    <section class="container-fluid footer_section ">
+        <div class="tow">
+            <div class="col-lg-7 col-md-9 mx-auto">
+                <p>
+                    &copy; 2022 All Rights Reserved. Klai Mohamed Aziz
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- footer section -->
+</div>
+
+<script type="text/javascript" src="{{ asset('assets/todo_assets/js/jquery-3.4.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/todo_assets/js/bootstrap.js') }}"></script>
+
+</body>
+
+</html>

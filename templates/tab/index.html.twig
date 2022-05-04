@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+{% block title %}simpleTable{% endblock %}
+
+{% block PageTitle %}Bonjour : {{ taille }}{% endblock %}
+
+{% block pagebody %}
+    <table class="table">
+        <tr>
+            {% for element in table %}
+                <td> {{ element}} </td>
+            {% endfor %}
+        </tr>
+    </table>
+    <div class="alert alert-info">
+        taille du tableau : {{ table | length }};<br>
+        nombre minimale : {{ min(table) }}; <br>
+        nombre maximale : {{max(table) }};<br>
+    </div>
+{% endblock %}

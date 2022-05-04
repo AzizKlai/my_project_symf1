@@ -1,0 +1,45 @@
+{% extends 'todo/acceuil.html.twig' %}
+{% block bonjour %} {{ parent()}}     {{ utilisateur }}{% endblock %}
+
+{% block bonjourr %} {{ parent()}}  {{ name }}{% endblock %}
+{% block start %}
+
+    <div class="container-fluid">
+        <div class="row">
+    <div  class="ajout col-4 " >
+        <form action="{{ path('app_+_todo',{'user':utilisateur}) }}" method="post">
+            <input type="text"  class="form-control" name="titre" placeholder="Title" required style="margin-bottom:1%" >
+            <textarea type="text"  class="form-control" name="note" cols="5" rows="4"  placeholder="Note" required></textarea>
+            <div class="d-flex  mt-4 ">
+                <button type="submit" class="btn btn-outline-secondary">
+                    Ajouter
+                </button>
+            </div>
+        </form>
+        <a href="{{ path('app_deconnecte') }}" >Se déconnecter</a><br>
+        <a href="{{ path('app_delete_user_todo') }}" >Supprimer compte</a>
+
+    </div>
+            <div class="notes col-8">
+                {% set ind=0 %}
+                {% for data in lasession    %}
+{#                    color: #fcac6c#}
+                    <div class="note" style=" background-color: bisque;border-radius: 5px;color: #5a6268;padding: 1px;margin-bottom:5px">
+                        <h2 class="title"> {{ data[0] }} </h2>
+
+                             {{ data[1] }}
+                        <a href="{{ path('app_delete_todo',{'nb':ind }) }}" >&nbsp 🚮</a>
+                    </div>
+                {% set ind=ind+1 %}
+                {% endfor %}
+            </div>
+        </div>
+                </div>
+
+
+
+
+{% endblock %}
+{% block login %}<!-- contact section -->
+
+    <!-- end contact section -->{% endblock %}

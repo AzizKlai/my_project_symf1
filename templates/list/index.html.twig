@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+{% block title %}TheList{% endblock %}
+
+
+
+{#ou#}
+{#{% for message in app.session.flashBag.get('success') %}#}
+{#    <div class="alert alert-success">{{ message }}</div>#}
+{#{% endfor %}#}
+
+{% block PageTitle %}Todo list{% endblock %}
+{% block pagebody %}
+<ol class="list-group">
+    {% for name,content in app.session.get('todods') %}
+    <li class="list-group-item">
+        {{ name }} : {{ content }}
+    </li>
+    {% endfor %}
+</ol>
+{% endblock %}
+
