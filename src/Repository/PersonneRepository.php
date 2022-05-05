@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Personne;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use \Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
@@ -50,19 +51,40 @@ class PersonneRepository extends ServiceEntityRepository
     // /**
     //  * @return Personne[] Returns an array of Personne objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function getPersonneByAge($ageMin,$ageMax)
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+        $qb=$this->createQueryBuilder('p');
+            $qb = $this->fingByAgeInterval($qb, $ageMin, $ageMax);
+            return $qb->orderBy('p.age', 'ASC')
+//            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    public function getStatPersonneByAge($ageMin,$ageMax)
+    {
+        $qb=$this->createQueryBuilder('p');
+        $qb->select('COUNT(p.age) as nbPersonne, AVG(p.age) as avgUserAge');
+        $qb = $this->fingByAgeInterval($qb, $ageMin, $ageMax);
+        return $qb->orderBy('p.age', 'ASC')
+//            ->setMaxResults(10)
+            ->getQuery()
+            ->getScalarResult()
+            ;
+    }
+    private function fingByAgeInterval(QueryBuilder $qb,$ageMin,$ageMax){
+        if($ageMin) {
+            $qb->andWhere('p.age > :ageMin')
+                ->setParameter('ageMin', $ageMin);
+        }
+        if($ageMax) {
+            $qb->andWhere('p.age < :ageMax')
+                ->setParameter('ageMax', $ageMax);
+        }
+        return $qb;
+    }
+
 
     /*
     public function findOneBySomeField($value): ?Personne

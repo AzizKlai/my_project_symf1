@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+{% block PageTitle%}
+
+{% endblock %}
+
+{% block pagebody %}
+{# {{ form(form) }} ou #}
+ {{ form_start(form) }}
+ <div class="row">
+  <div class="col">{{ form_row(form.firstname) }}</div>
+  <div class="col">{{ form_row(form.name) }}</div>
+ </div>
+ {{ form_rest(form) }}
+{% endblock %}
+

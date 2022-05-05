@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+info {{ personne.firstname }}
+{% endblock %}
+{% block PageTitle %}
+Detail:
+{% endblock %}
+{% block pagebody %}
+    <div class="alert alert-info">
+ {{ personne.firstname }} {{ personne.name }} a {{ personne.age }} ans <br>
+        cette personne est ajoutéele {{ personne.createdAt|date('d,m,Y') }}<br>
+        derniere modification {{ personne.updatedAt |date('Y-m-d H:i:s')}} <br></div>
+{% endblock %}
+
