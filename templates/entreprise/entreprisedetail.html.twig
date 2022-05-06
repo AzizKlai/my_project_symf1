@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+{{ entreprise.name }}
+{% endblock %}
+
+{% block PageTitle %}
+    {{ entreprise.name }}
+{% endblock %}
+{% block pagebody %}
+    <div class="alert alert-info">
+        nom: {{ entreprise.name }} , domaine: {{ entreprise.domain }} <br>
+    </div>
+    cette entreprise offre ces pfes: <a href="{{ path('pfe.edit',{'ide':entreprise.id}) }}">new pfe</a>
+    <table class="table">
+        <tr class="table-active">
+            <th>name</th>
+            <th>desciption</th>
+            <th>Action</th>
+        </tr>
+        {% for pfe in entreprise.pfes %}
+
+            <tr >
+                <td> {{ pfe.name}} </td>
+                <td> {{ pfe.description}} </td>
+                <td><a href="{{ path('pfe.edit',{'ide':entreprise.id,'id':pfe.id}) }}" >edit</a> <a href="{{ path('pfe.delete',{'ide':entreprise.id,'id':pfe.id}) }}">delete</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}
+

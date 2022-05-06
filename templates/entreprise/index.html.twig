@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}entreprises list{% endblock %}
+{% block PageTitle %}La liste des entreprises{% endblock %}
+
+{% block pagebody %}
+<table class="table">
+    <tr class="table-active">
+        <th>name</th>
+        <th>domain</th>
+        <th>Action</th>
+    </tr>
+    {% for entreprise in entreprises %}
+
+    <tr >
+        <td> {{ entreprise.name}} </td>
+        <td> {{ entreprise.domain}} </td>
+        <td><a href="{{ path('entreprise.detail',{'id':entreprise.id}) }}" >details</a> </td>
+        </tr>
+{% endfor %}
+
+</table>
+{% endblock %}
