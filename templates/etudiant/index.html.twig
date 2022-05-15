@@ -17,11 +17,11 @@
             <th>Action</th>
         </tr>
         {% for et in etudiants %}
-
-            <tr class="{% if loop.index0 is even %}table-warning{% endif %}" >
+{#             is even càd pair#}
+            <tr class="{% if loop.index0%4==0 %}c{% elseif loop.index0%4==1 %}cc{% elseif loop.index0%4==3 %}ccc{% endif %}" >
                 <td> {{ et.nom}} </td>
                 <td> {{ et.prenom}} </td>
-                <td> {% if (et.section!=null ) %}{{ et.section.designation}}{% else%}Et non encore affecte a une section{% endif%} </td>
+                <td> {% if (et.section!=null ) %}{{ et.section.designation}}{% else%}Etlm non encore affecte a une section{% endif%} </td>
                 <td><a href="{{ path('etudiant.edit',{'id':et.id}) }}" >edit</a> <a href="{{ path('etudiant.delete',{'id':et.id}) }}">delete</a></td>
             </tr>
         {% endfor %}

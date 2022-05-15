@@ -1,4 +1,4 @@
-const add = document.querySelectorAll("td");
+const tr = document.querySelectorAll("tr");
 
-add.forEach(el=>el.addEventListener("click", function(e) {
-   el.classList.toggle('highlight')}));
+tr.forEach(el=>el.addEventListener("click", function(e) {
+    el.classList.toggle('highlight')}));
